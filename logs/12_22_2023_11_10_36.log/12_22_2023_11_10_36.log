@@ -1,0 +1,97 @@
+[ 2023-12-22 11:10:36,878 ] 96 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.13:8000
+[ 2023-12-22 11:10:36,878 ] 96 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-12-22 11:12:07,444 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:07] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:12:07,473 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:07] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:12:07,479 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:07] "[32mGET /static//Image/your_profile_pic.jpg HTTP/1.1[0m" 308 -
+[ 2023-12-22 11:12:07,486 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:07] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:12:07,528 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:12:35,414 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:12:38,171 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:38] "POST /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:12:38,185 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:38] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:12:38,196 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:38] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:12:38,610 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 21, in predict_datapoint
+    carat = float(request.form.get('carat')),
+ValueError: could not convert string to float: ''
+[ 2023-12-22 11:12:38,611 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:12:38] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:17:09,237 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:17:09,320 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:09] "POST /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:17:09,333 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:09] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:17:09,338 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:09] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:17:17,450 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:17:17,555 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:17] "POST /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:17:17,570 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:17] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:17:17,574 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:17] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:17:46,671 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:17:46,758 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:46] "POST /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:17:46,772 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:46] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:17:46,773 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:17:46] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:14,420 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:20:14,501 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:14] "POST /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:20:14,519 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:14] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:14,524 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:14] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:40,886 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:40] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:20:40,919 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:40] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:40,924 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:40] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:42,469 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:42] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:20:42,491 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:42] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:20:42,496 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:20:42] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:22:31,576 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:31] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:22:31,606 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:31] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:22:31,613 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:31] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:22:34,424 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:34] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:22:34,447 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:34] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:22:34,453 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:22:34] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:13,132 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:13] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:13,152 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:13] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:13,156 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:13] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:16,333 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:16] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:16,362 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:16] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:16,370 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:16] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:43,163 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:43] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:43,192 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:43] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:43,198 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:43] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,256 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:44,282 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,291 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,445 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:44,470 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,476 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,671 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "GET /predict HTTP/1.1" 200 -
+[ 2023-12-22 11:24:44,699 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:24:44,705 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:24:44] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:13,342 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:13] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:13,377 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:13] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:13,383 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:13] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:15,487 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:15] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:15,511 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:15] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:15,525 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:15] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,312 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:16,337 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,350 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,482 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:16,507 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,515 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,659 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:16,682 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,686 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,842 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:16,869 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:16,874 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:16] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:17,064 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:17] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:25:17,092 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:17] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:25:17,097 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:25:17] "[33mGET /static/Image/your_profile_pic.jpg HTTP/1.1[0m" 404 -

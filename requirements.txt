@@ -1,0 +1,9 @@
+pandas
+numpy 
+seaborn
+flask
+notebook
+scikit-learn
+dill
+flask_cors
+-e .

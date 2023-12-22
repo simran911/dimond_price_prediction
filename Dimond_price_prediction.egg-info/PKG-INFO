@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: Dimond-price-prediction
+Version: 0.0.1
+Author: simran
+Author-email: simran11singh2004@gmail.com
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Requires-Dist: flask
+Requires-Dist: notebook
+Requires-Dist: scikit-learn
+Requires-Dist: dill
+Requires-Dist: flask_cors

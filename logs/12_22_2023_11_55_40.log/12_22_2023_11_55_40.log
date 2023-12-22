@@ -1,0 +1,466 @@
+[ 2023-12-22 11:55:41,050 ] 96 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.13:8000
+[ 2023-12-22 11:55:41,050 ] 96 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-12-22 11:55:55,959 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:55:55] "GET / HTTP/1.1" 200 -
+[ 2023-12-22 11:55:56,024 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:55:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-12-22 11:56:21,833 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:22,929 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:23,352 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:23,546 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:23,752 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:23,967 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:25,519 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,527 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,527 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,539 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,548 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,557 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,557 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,565 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,581 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,581 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,581 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,581 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,581 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,581 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,597 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:25,597 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,597 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,597 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,613 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:25,621 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,749 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,757 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,773 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:25,789 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:25,789 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:25,789 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+[ 2023-12-22 11:56:27,202 ] 61 root - INFO - Dataframe Gathered
+[ 2023-12-22 11:56:27,273 ] 21 root - INFO - Exception occured in prediction pipeline
+[ 2023-12-22 11:56:27,273 ] 825 application - ERROR - Exception on /predict [POST]
+Traceback (most recent call last):
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 17, in predict
+    data_scaled = preprocessor.transform(features)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 827, in transform
+    Xs = self._fit_transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\compose\_column_transformer.py", line 681, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 65, in __call__
+    return super().__call__(iterable_with_config)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1863, in __call__
+    return output if self.return_generator else list(output)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\joblib\parallel.py", line 1792, in _get_sequential_output
+    res = func(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\parallel.py", line 127, in __call__
+    return self.function(*args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 940, in _transform_one
+    res = transformer.transform(X)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\pipeline.py", line 696, in transform
+    Xt = transform.transform(Xt)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\utils\_set_output.py", line 157, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 1586, in transform
+    X_int, X_mask = self._transform(
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\sklearn\preprocessing\_encoders.py", line 200, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories ['cut1'] in column 0 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "c:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\venv\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\application.py", line 37, in predict_datapoint
+    pred = predict_pipeline.predict(pred_df)
+  File "C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py", line 22, in predict
+    raise CustomException(e,sys)
+src.exception.CustomException: Error occured in python script name [C:\Users\simran\Desktop\projects-ml\Dimond_price_prediction\src\pipelines\predict_pipeline.py] line number [17] error message [Found unknown categories ['cut1'] in column 0 during transform]
+[ 2023-12-22 11:56:27,273 ] 96 werkzeug - INFO - 127.0.0.1 - - [22/Dec/2023 11:56:27] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
